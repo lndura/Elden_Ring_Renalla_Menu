@@ -125,17 +125,17 @@ end
 
 local function getHP(value)
    local scaling = 0
-   if value &lt;= 1 then
+   if value <= 1 then
       scaling = 0
-   elseif value &lt; 25 then
+   elseif value < 25 then
       scaling = math.pow((value - 1) / 24, 1.5) * 500 + 300
-   elseif value &lt; 40 then
+   elseif value < 40 then
       scaling = math.pow((value - 25) / 15, 1.1) * 650 + 800
-   elseif value &lt; 60 then
+   elseif value < 60 then
       scaling = (1 - math.pow(1 - (value - 40) / 20, 1.2)) * 450 + 1450
-   elseif value &lt; 99 then
+   elseif value < 99 then
       scaling = (1 - math.pow(1 - (value - 60) / 39, 1.2)) * 200 + 1900
-   elseif value &gt;= 99 then
+   elseif value >= 99 then
       scaling = 2100
    else
       scaling = 0
@@ -145,17 +145,17 @@ end
 
 local function getFP(value)
    local scaling = 0
-   if value &lt;= 1 then
+   if value <= 1 then
       scaling = 40
-   elseif value &lt; 15 then
+   elseif value < 15 then
       scaling = ((value - 1) / 14) * 45 + 50
-   elseif value &lt; 35 then
+   elseif value < 35 then
       scaling = ((value - 15) / 20) * 105 + 95
-   elseif value &lt; 60 then
+   elseif value < 60 then
       scaling = (1 - math.pow(1 - (value - 35) / 25, 1.2)) * 150 + 200
-   elseif value &lt; 99 then
+   elseif value < 99 then
       scaling = ((value - 60) / 39) * 100 + 350
-   elseif value &gt;= 99 then
+   elseif value >= 99 then
       scaling = 450
    else
       scaling = 0
@@ -165,17 +165,17 @@ end
 
 local function getSP(value) -- Get Stamina Total
    local scaling = 0
-   if value &lt;= 1 then
+   if value <= 1 then
       scaling = 0
-   elseif value &lt; 15 then
+   elseif value < 15 then
       scaling = string.format('%-5d', math.floor(((value - 1) / 14) * 25 + 80))
-   elseif value &lt; 30 then
+   elseif value < 30 then
       scaling = string.format('%-5d', math.floor(((value - 15) / 15) * 25 + 105))
-   elseif value &lt; 50 then
+   elseif value < 50 then
       scaling = string.format('%-5d', math.floor(((value - 30) / 20) * 25 + 130))
-   elseif value &lt; 99 then
+   elseif value < 99 then
       scaling = string.format('%-5d', math.floor(((value - 50) / 49) * 15 + 155))
-   elseif value &gt;= 99 then
+   elseif value >= 99 then
       scaling = 170
    end
    return math.floor(scaling)
@@ -183,17 +183,17 @@ end
 
 local function getEQ(value) -- Get Equip Load
    local scaling = 0
-   if value &lt;= 1 then
+   if value <= 1 then
       scaling = 0
-   elseif value &lt; 8 then
+   elseif value < 8 then
       scaling = string.format('%.1f', ((value - 1) / 7) * 0 + 45)
-   elseif value &lt; 25 then
+   elseif value < 25 then
       scaling = string.format('%.1f', ((value - 8) / 17) * 27 + 45)
-   elseif value &lt; 60 then
+   elseif value < 60 then
       scaling = string.format('%.1f', math.pow((value - 25) / 35, 1.1) * 48 + 72)
-   elseif value &lt; 99 then
+   elseif value < 99 then
       scaling = string.format('%.1f', ((value - 60) / 39) * 40 + 120)
-   elseif value &gt;= 99 then
+   elseif value >= 99 then
       scaling = 160.0
    end
    return math.floor(scaling)
@@ -263,18 +263,18 @@ local function validateInput(data)
 end
 
 local function cycle(arg, min, max)
-   if arg &lt; min then
+   if arg < min then
       return max
-   elseif arg &gt; max then
+   elseif arg > max then
       return min
    end
    return arg
 end
 
 local function inbound(arg, min, max)
-   if arg &lt; min then
+   if arg < min then
       return min
-   elseif arg &gt; max then
+   elseif arg > max then
       return max
    end
    return arg
@@ -426,7 +426,7 @@ for i=2,5,1 do
       build.curr[i] = new
    end})
 
-   build:button("Archetype", "Arch_Sub_"..i, {Caption = "&lt;", Width = 30, Height = 30, Left = 10, Top = topOffset, OnClick = function()
+   build:button("Archetype", "Arch_Sub_"..i, {Caption = "<", Width = 30, Height = 30, Left = 10, Top = topOffset, OnClick = function()
       local index = build.curr[i]
       local diff = -1 + index
       local new = cycle(diff,0,#build.arch[i])
@@ -434,7 +434,7 @@ for i=2,5,1 do
       build.curr[i] = new
    end})
 
-   build:button("Archetype", "Arch_Add_"..i, {Caption = "&gt;", Width = 30, Height = 30,Left = 205, Top = topOffset, OnClick = function()
+   build:button("Archetype", "Arch_Add_"..i, {Caption = ">", Width = 30, Height = 30,Left = 205, Top = topOffset, OnClick = function()
       local index = build.curr[i]
       local diff = 1 + index
       local new = cycle(diff,0,#build.arch[i])
@@ -460,7 +460,7 @@ for i=1,8,1 do
       end
    end})
 
-   build:button("Character", "Char_Sub_"..i, {Caption = "&lt;", Width = 25, Height = 25, Left = 135, Top = topOffset, OnClick = function()
+   build:button("Character", "Char_Sub_"..i, {Caption = "<", Width = 25, Height = 25, Left = 135, Top = topOffset, OnClick = function()
       local class = build.curr[2]
       local index = build.curr.stats[i]
       local diff = -1 + index
@@ -469,7 +469,7 @@ for i=1,8,1 do
       build.curr.stats[i] = new
    end})
 
-   build:button("Character", "Char_Add_"..i, {Caption = "&gt;", Width = 25, Height = 25, Left = 210, Top = topOffset, OnClick = function()
+   build:button("Character", "Char_Add_"..i, {Caption = ">", Width = 25, Height = 25, Left = 210, Top = topOffset, OnClick = function()
       local class = build.curr[2]
       local index = build.curr.stats[i]
       local diff = 1 + index
