@@ -388,7 +388,7 @@ function build:init(parent, properties)
 end
 
 build.ctrl["classChange"] = build.curr[2]
-build:init("Main",{Width = 1090,Height = 590, Caption = "Respec Menu"})
+build:init("Main",{Width = 1090,Height = 590, Caption = "Respec Menu", Color = 0x6d4424})
 build:text("Main", "RL",{Caption = "Level: ", Font = {Size = 14}, Left = 280, Top = 5})
 build:text("Main", "HP",{Caption = "Health: ", Font = {Size = 14}, Left = 280, Top = 26})
 build:text("Main", "SP",{Caption = "Focus: ", Font = {Size = 14}, Left = 280, Top = 47})
