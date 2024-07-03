@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<AssemblerScript><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <CheatTable>
   <CheatEntries>
     <CheatEntry>
@@ -222,7 +222,6 @@ local function getTable(t, indent)
    local file = "{\n"
    local indent = indent or "  "
    local innerIndent = indent .. "  "
-
    for k, v in pairs(t) do
       if k ~= "fData" then
          file = file .. innerIndent
@@ -570,4 +569,4 @@ end})
 </AssemblerScript>
     </CheatEntry>
   </CheatEntries>
-</CheatTable>
+</CheatTable>]]></AssemblerScript>
