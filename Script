@@ -1,4 +1,5 @@
-<AssemblerScript><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<AssemblerScript><![CDATA[
+<?xml version="1.0" encoding="utf-8"?>
 <CheatTable>
   <CheatEntries>
     <CheatEntry>
@@ -569,4 +570,5 @@ end})
 </AssemblerScript>
     </CheatEntry>
   </CheatEntries>
-</CheatTable>]]></AssemblerScript>
+</CheatTable>
+]]></AssemblerScript>
